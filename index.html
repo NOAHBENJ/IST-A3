@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IST Website</title> <!--Change later-->
+		<link href="pages/style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/0.3.2/js/sql.js"></script>
+
+		<script src="pages/index.js"></script>
+	</head>
+	<body>
+		<ul id="ul">
+			<li id="home-nav"><a href="index.html">Home</a></li>
+			<li id="news-nav"><a href="pages/tbd.html">News</a></li>
+			<li id="contacts-nav"><a href="pages/tutorials.html">Tutorials</a></li>
+			<li id="about-nav"><a href="pages/about.html">About</a></li>
+			<img src="media/logo.png" id="home-p-nav" alt="main-logo" href="index.html">
+		</ul>
+
+		<h1 id="main-text">Home</h1>
+		<h3 id="latest-news-text">Latest News</h3>
+		
+		<div id="carousel" class="owl-carousel"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var carousel = $('#carousel');
+				var viewWidth = 0;
+				if (window.innerWidth > 0 && window.innerWidth < 601) {
+						viewWidth = 80;
+					}
+					if (window.innerWidth > 600 && window.innerWidth < 1001) {
+						viewWidth = 40;
+					}
+					if (window.innerWidth > 1000) {
+						viewWidth = 30;
+					}
+				window.addEventListener('resize', function(event) {
+					if (window.innerWidth > 0 && window.innerWidth < 601) {
+						viewWidth = 80;
+					}
+					if (window.innerWidth > 600 && window.innerWidth < 1001) {
+						viewWidth = 40;
+					}
+					if (window.innerWidth > 1000) {
+						viewWidth = 30;
+					}
+				}, true);
+				
+				for (var i = 1; i <= 6; i++) {
+					var imagePath = 'media/img-' + i + '.jpeg';
+					carousel.append('<img src="' + imagePath + '" style="width: ' + viewWidth + 'vw">');
+				}
+				carousel.owlCarousel({
+					items: 3, loop: true, nav: false,
+					navText: ['<span id="owl-nav-prev" class="custom-prev" style="display:block;margin: 0 auto;">Previous</span>', '<span id="owl-nav-next"  class="custom-next" style="display:block;margin: 0 auto;">Next</span>'],
+					margin: 10, responsiveClass: true ,
+					responsive: {
+						0: {
+						  items: 1,
+						  nav: true
+						},
+						600: {
+						  items: 2,
+						  nav: true,
+						  loop: true
+						},
+						1000: {
+						  items: 3,
+						  nav: true,
+						  loop: true
+						},
+						1600: {
+							items: 4,
+							nav: true,
+							loop: true
+						}
+					} 
+				});
+			});
+		</script>
+<!--		<button onclick="printDimensions()">Print Dimensions</button>-->
+ 
+		
+		
+	</body>
+</html>

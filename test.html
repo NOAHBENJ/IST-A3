@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owl Carousel Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <style>
+    .owl-carousel img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    
+    #owl-nav-prev,
+#owl-nav-next {
+  background-color: #ccc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#owl-nav-prev {
+  margin-left: 10px;
+}
+
+#owl-nav-next {
+  margin-right: 10px;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div id="carousel" class="owl-carousel">
+  
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var carousel = $('#carousel');
+    for (var i = 1; i <= 6; i++) {
+      var imagePath = 'media/img-' + i + '.jpeg';
+      carousel.append('<img src="' + imagePath + '">');
+    }
+
+    carousel.owlCarousel({
+      items: 3,
+      loop: true,
+      nav: true,
+	  navText: ['<span id="owl-nav-prev" class="custom-prev">Previous</span>', '<span id="owl-nav-next"  class="custom-next">Next</span>'],
+      margin: 10,
+      responsiveClass: true,
+      responsive:{
+          0:{
+              items: 1,
+              nav: true
+          },
+          600:{
+              items: 3,
+              nav: true
+          }
+      }
+      
+    });
+
+
+  });
+</script>
+
+</body>
+</html>
