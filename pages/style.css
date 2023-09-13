@@ -139,7 +139,7 @@ body {
 
 .wrapper-1 .sidebar-1 .ul-1 .li-1 {
   display: block;
-  padding: 13px 30px;
+  padding: 14px 80px;
   border-bottom: 1px solid #10558d;
   color: rgb(241, 237, 237);
   font-size: 16px;
@@ -150,7 +150,7 @@ body {
 .wrapper-1 .sidebar-1 .ul-1 .li-1.active {
   color: #0c7db1;
   background: white;
-  border-right: 2px solid rgb(5, 68, 104);
+ /* border-right: 2px solid rgb(5, 68, 104); */
 }
 
 .wrapper-1 .sidebar-1 .ul-1 .li-1:hover .icon,
