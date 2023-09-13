@@ -9,6 +9,7 @@
 
 		<script src="pages/index.js"></script>
 	</head>
+	<!---->
 	<body>
 		<ul id="ul">
 			<li id="home-nav"><a href="index.html">Home</a></li>
@@ -81,9 +82,69 @@
 				});
 			});
 		</script>
-<!--		<button onclick="printDimensions()">Print Dimensions</button>-->
- 
-		
-		
+		<div class="parallax-wrapper">
+
+			<h1 id="main-text" style="padding-bottom: 500px; padding-top: 500px;">Keep Scrolling....</h1>
+
+			<!-- Beginning of Parallax -->
+			<div class="parallax">
+				<div class="section">
+					<h1 style="font-size: 50px; text-shadow: 5px 5px #5A189C">Code is how we <br>Communicate with <br>Computers, and is <br>How the modern world <br>Runs. Code isn’t <br>Just one language, <br>It comes in many. </h1>
+				</div>
+
+				<div class="section">
+					<h1 style="font-size: 50px; text-shadow: 5px 5px #5A189C">Like all good things, <br>It will eventually be <br>Destroyed. Code is <br>Vulnerable to attacks, <br>Some tiny, some.... <br>Devastating.</h1>
+				</div>
+
+				<div class="section">
+					<h1 style="font-size: 50px; text-shadow: 5px 5px #5A189C">On the positive side, <br>These products can be <br>Secure in the face of <br>These attacks. This is <br>Called Cybersecurity.</h1>
+				</div>
+
+				<div class="section">
+					<h1 style="font-size: 50px; text-shadow: 5px 5px #5A189C">Without Cybersecurity, <br>Our modern day technology <br>Would be destroyed, with <br>Banks, Google, your phone <br>And many others being <br>Rendered useless.</h1>
+				</div>
+
+				<div class="section">
+					<h1 style="font-size: 50px; text-shadow: 5px 5px #5A189C">So, Do you want to <br>Take charge about this? <br>Do you want to join the <br>0.0006% of people that <br>Work in Cybersecurity <br>Around the globe?</h1>
+				</div>
+
+				<div class="last-element"></div>
+			</div>
+
+
+			<script>
+				var sections = document.querySelectorAll('.section'); // Creates a variable of all the sections
+				window.addEventListener('scroll', function() { // On scroll of browser, this will be fun
+					var scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Sets scrollTop to either the page's Y offset, or if that doesnt exist, the documents built in scrollTop
+					sections.forEach(function(section, index) { // For every section, creates a variable of that section's instance, and the index of it
+						var scrollDistance = (scrollTop - section.offsetTop) * 0.5; // Calculates the scroll distance
+						var spaceBetween = 600; // Pixel space between text
+						var translateY = scrollDistance + (spaceBetween * (index/2)); // Puts the text where it needs to be
+						section.style.transform = 'translateY(' + translateY + 'px)'; // Pushes that to the element's CSS
+					});
+				});
+			</script>
+
+			<!-- footer div-->
+			<div id="footer-div-main" style="text-align: center;">
+
+				<h1 id="main-text" style="padding-top: 300px">So, you interested? <br> <br> If so, that's awesome!</h1>
+				<br>
+				<h1 id="latest-news-text">Click the buttons below to learn more <br>about Cybersecurity, the latest exploits, <br>and how to protect yourself from.</h1>
+				<div id="final-buttons" style="">
+				
+					<a href="pages/tutorials.html"><button style="width: 200px; height: 80px; background-color: #5A189C; color: #fff; border: none; cursor: pointer; font-size: 25px;" >Tutorials</button></a>
+					<a href="pages/tbd.html"><button style="width: 200px; height: 80px; background-color: #5A189C; color: #fff; border: none; cursor: pointer; font-size: 25px;" >News</button></a>
+					
+				</div>
+
+			</div>
+
+			<script>
+			const footerDiv = document.getElementById('footer-div-main'); // Creates a variable of the footer div
+			const parallaxDiv = document.querySelector('.parallax'); // Creates a variable of the parallax enclosure
+			parallaxDiv.parentNode.insertBefore(footerDiv, parallaxDiv.nextSibling); // Puts the div below the parallax so it renders properly because HTML :)
+			</script>
+		</div>
 	</body>
 </html>

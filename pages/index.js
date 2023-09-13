@@ -29,38 +29,12 @@ function insertRows() { // This will set the content of the database to all entr
 	obj.pages.forEach(page => { // For every entry inside of the JSON file. 
 		db.run('INSERT INTO entries (name, content) VALUES (?, ?)', [page.name, page.content]); // For every entry, creates a new row in the database, of the name // (which is the number of the page, as many as I want)
 	}); // Once all entries are counted
+  }).then(() => {
+        document.getElementById("button-1-home").click(); // This will load the home content whenever the page is first loaded, doing this in a <script> tag or at the end of the file seems to break it, and I assume due to the database not being finished, so once it is, we then load it, as I cannot press it fast enough myself for the error to reproduce on day-to-day use. 
   }); // Once everything is set
 	
 } // This approach allows me to dynamically make as many as I want, and does not bloat the main JavaScript file, and means that everything is seperated and sorted. // Also prevents the need for hardcoding, which is not ideal, and allows me to provide extensive JavaScript knowledge and ability, because if you are reading this, // hopefully this counts towards something, because documentation and explanation of everything takes time and effort :)
 // Hopefully, you understand that these comments were written by me, and aren't just from a copy/paste source, i.e. ChatGPT or W3Schools.
-
-/*function changeContent(itemNumber) { // This function will change the main page content to whatever database entry is specified
-  let listOfThings = logEntries(); // Grabs all entries
-  let currentText = listOfThings[itemNumber - 1][1] // Grabs the entry needed, and the text of that.
-
-  let contentElement = document.getElementById('content'); // Creates a variable of the main page content, so it can be manipulated later.
-
-  if (currentText) { // If there is current text, prevents error
-	 
-	let str = currentText;
-	let pattern = /<img[^>]*src=['"]([^'"]+)[^>]*>/g;
-	let match;
-	let currentIndex = 0;
-
-	while ((match = pattern.exec(str)) !== null) {
-	  let content = match[0].match(/src=['"]([^'"]+)['"]/)[1];
-	  let index = match.index;
-	  console.log("Image:", content);
-	  console.log("Index:", currentIndex + index);
-	  currentIndex += index + match[0].length;
-	}
-  //console.log(extractedContent);
-  contentElement.innerText = currentText; // Changes the main page content using the afformentioned created variable of main page content.
-	 //TODO - Eventually going to implement a very basic Markdown parser, or my own scripting? ability, where in the JSON file, I can add images, links etc
-  } else { // If there was no entry; print x. 
-    contentElement.innerText = 'No content found for this item.'; // If there was no entry, printing x, which is stating that there is no content.
-  }
-} */
 
 function changeContent(itemNumber) { // This long function will change the content of the content section of the page, from the database - TODO was finished, added // img support. It was hard, we got there.
   let listOfThings = logEntries(); // Grabs all entries from database table
@@ -71,19 +45,40 @@ function changeContent(itemNumber) { // This long function will change the conte
 
   if (currentText) { // Error prevention, makes sure there is content
     let str = currentText; // Sets str to the currentText, what we want to change to, for simplicity
-    let pattern = /<img[^>]*src=['"]([^'"]+)[^>]*>/g; // The formatted pattern that we want to find, so we can render images alongside text
-    let matches = str.match(pattern); // Finds all matches, all img tags
+    let imageTagPattern = /<img[^>]*src=['"]([^'"]+)[^>]*>/g; // The formatted pattern that we want to find, so we can render images alongside text
+    let imageTagMatches = str.match(imageTagPattern); // Finds all matches, all img tags
 
-    if (matches) { // If there are some, do x
+	let headerTagPattern = /<header[^>]*text=['"]([^'"]+)[^>]*>/g;   // The formatted pattern that we want to find, so we can render headings alongside text
+	let headerTagMatches = str.match(headerTagPattern); // Finds all matches, all heading tags
+	
+    if (headerTagMatches) { // If there is a header tag
+      for (let i = 0; i < headerTagMatches.length; i++) { // For every instance of the header tag, do x
+        let match = headerTagMatches[i]; // Gets the actual match
+        let headerText = match.match(/text=['"]([^'"]+)['"]/)[1]; // Gets the text of the match
+        let index = str.indexOf(match); // Finds whereabouts inside of the text this specific heading is meant to be
+        let textBeforeHeader = str.substring(i, index); // Gets all text before the header tag
+        if (textBeforeHeader) { // If there is any, do x
+          let textElement = document.createElement('p'); // Creates a p tag
+          textElement.innerText = textBeforeHeader; // Puts all of the previous text into that p tag
+          contentElement.appendChild(textElement); // Appends the p tag into the DOM
+        }
+        let headerElement = document.createElement('h1'); // Creats an h1 tag
+        headerElement.innerText = headerText; // Puts the header text into the h1 tag
+        contentElement.appendChild(headerElement); // Appents the h1 tag into the DOM
+        i++; // Increments, so we can go to the next heading, if there is one (or many).
+      }
+    } 
+    if (imageTagMatches) { // If there are some, do x
       let currentIndex = 0; // Sets index so we can render more than one image
 
-      for (let i = 0; i < matches.length; i++) { // For loop going through every image tag
-        let match = matches[i]; // Gets the specific match
+      for (let i = 0; i < imageTagMatches.length; i++) { // For loop going through every image tag
+        let match = imageTagMatches[i]; // Gets the specific match
         let imageUrl = match.match(/src=['"]([^'"]+)['"]/)[1]; // Formatted string so we can get only the image path
         let index = str.indexOf(match); // Gets where the image tag was found, so we know where to put it
 
         let textBeforeImage = str.substring(currentIndex, index); // Gets text before image, by getting all text before x, in which x is where the image was found
-        textBeforeImage = textBeforeImage.replace(/\n/g, '<br>');
+        textBeforeImage = textBeforeImage.replace(headerTagPattern, '');
+		
 		if (textBeforeImage) { // If there is text, do x
           let textElement = document.createElement('p'); // Creates a new element, of which is text
           textElement.innerText = textBeforeImage; // Sets the text
@@ -98,17 +93,18 @@ function changeContent(itemNumber) { // This long function will change the conte
       }
 
       let remainingText = str.substring(currentIndex); // Grabs all text afterwards
-      remainingText = remainingText.replace(/\n/g, '<br>');
+      remainingText = remainingText.replace(headerTagPattern, '');
+	  
       if (remainingText) { // If there is text, do x
         let textElement = document.createElement('p'); // Creates a new element
         textElement.innerText = remainingText; // Sets the text
         contentElement.appendChild(textElement); // Adds it to content
       }
-    } else { // If there is no remaining text, do x
+    } else { // If there is no special tags, do x
       let textElement = document.createElement('p'); // Creates a new element
       textElement.innerText = currentText; // Sets the text as everything
       contentElement.appendChild(textElement); // Adds it to main content so we can push all at once, in order
-    }
+    }  
   } else { // Otherwise, do x
     contentElement.innerText = 'No content found for this item.'; // x: Makes the text a generic thing saying that there is no content. 
   }
@@ -148,7 +144,6 @@ function fetchFileContent(fileLocation) {
       console.error('There was an error fetching the file.', error); // Print error 'x'
     });
 }
-
 
 createDatabase(); // Init database, 
 createTable(); // Init table

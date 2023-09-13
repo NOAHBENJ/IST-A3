@@ -1,1 +1,33 @@
-
+{
+	"pages": [
+		{
+			"id": "101",
+			"content": "<header text='Home/Index'>Hey everyone! Welcome to my tutorials tab! This is where you can find tutorials on cybersecurity, how to protect yourself, and day-to-day secutiry. This takes a while to make, and I would appreciate it if you told your friends about this! On the left, you will find the title to all of the tutorials, and when you click on them, they will take you to a better description of the content explained, and also the content itself. This will contain images, such as <img src='../media/img-1.jpeg'> This was very difficult to write, and would appreciate a good word! Thanks ;)"
+		},
+		{
+			"id": "102",
+			"content": "<header text='Cybersecurity Basics: Protecting Yourself Online'>\nIn today's digital era, cybersecurity is of utmost importance. With the increasing number of cyberattacks and threats, it is crucial to familiarize yourself with the basics of cybersecurity. This tutorial will provide you with essential knowledge about cybersecurity, including types of cyberattacks and best practices to protect yourself online. By following these guidelines, you can safeguard your personal and financial information while browsing the web. \n\n    1: What is Cybersecurity?: Cybersecurity refers to the practice of protecting critical systems, devices, and sensitive data against cyberattacks. Whether you are an individual user or part of a large organization, implementing effective cybersecurity practices is essential to safeguard your information online.\n\n    2: Types of Cybersecurity Attacks: There are various types of cyberattacks that you should be aware of:\n      ->     Ransomware: Ransomware is a type of malware that locks, encrypts, and destroys personal files. Hackers often use ransomware to extort money by promising to restore the encrypted data.\n      ->     Advanced Persistent Threats (APTs): APTs are sophisticated attacks that infiltrate networks undetected for an extended period. These attacks aim to steal valuable data without causing harm to the network.\n      ->     IoT-based Attacks: Internet of Things (IoT) devices are susceptible to cyberattacks. Cybercriminals exploit security vulnerabilities in IoT devices to gain access to the network and compromise personal information.\n\n3: Protecting Yourself Online: To enhance your cybersecurity, consider the following best practices:\n      ->     Update Security Software: Keep your security software, web browsers, and operating systems up to date with the latest protections. Regularly check for updates and install them promptly.\n      ->     Backup Your Files: Secure and back up your files regularly to protect against data breaches or malware attacks. Store your essential files offline on an external hard drive or in the cloud.\n      ->     Practice Secure Authentication: Use strong, unique passwords and enable multi-factor authentication when available. Avoid using the same password across multiple accounts.\n      ->      Be Cautious of Phishing Scams: Phishing scams are a common method used by cybercriminals to trick users into revealing sensitive information. Be vigilant and avoid clicking on suspicious links or providing personal information to unknown sources.\n\n   4: Embrace Education and Training : Investing time in educating yourself about cybersecurity threats and best practices is crucial. Stay updated on the evolving cybersecurity landscape by:\n      ->     Following Cybersecurity News: Regularly read reputable cybersecurity news sources to stay informed about the latest threats and trends.\n      ->     Participating in Training Courses: Online platforms like edX offer cybersecurity courses, such as IBM's Cybersecurity Basics, that provide a comprehensive understanding of cybersecurity fundamentals.\n      ->     Learning Technical Skills: Familiarize yourself with basic computer hardware terms, software skills, and security components. This knowledge can help you troubleshoot issues and communicate effectively with support teams. \n\nBy understanding the basics of cybersecurity and implementing best practices, you can protect yourself online. Regularly update your security software, practice secure authentication, and be cautious of phishing scams. Additionally, invest in education and training to stay informed about the latest cybersecurity threats and enhance your technical skills. Stay safe and secure in the digital world! <img src='../media/1x1.png'>" 
+		},
+		{
+			"id": "103",
+			"content": "This is content for page 3"
+		},
+		{
+			"id": "104",
+			"content": "This is content for page 4"
+		},
+		{
+			"id": "105",
+			"content": "This is content for page 5"
+		},
+		{
+			"id": "106",
+			"content": "This is content for page 6"
+		},
+		{
+			"id": "107",
+			"content": "This is content for page 7"
+		}
+	]
+	
+}

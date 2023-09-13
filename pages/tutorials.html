@@ -1,20 +1,46 @@
 <!doctype html>
-<html>
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>IST Website</title> <!--Change later-->
 <link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/0.3.2/js/sql.js"></script>
+
+		<script src="index.js"></script>
 </head>
 
 <body>
+	<nav class="navbar-1" style="position: fixed; width: 100%; top: 0; left: 0; background-color: white; z-index: 100;">
+		<ul class="ul-1">
+			<li id="home-nav"><a href="../index.html">Home</a></li>
+			<li id="news-nav"><a href="tbd.html">News</a></li>
+			<li id="contacts-nav"><a href="tutorials.html">Tutorials</a></li>
+			<li id="about-nav"><a href="about.html">About</a></li>
+			<a href="../index.html"><img src="../media/logo.png" id="home-p-nav" alt="main-logo" href="../index.html"></a>
+		</ul>
+	</nav>
 	
-	<ul>
-  		<li id="home-nav"><a href="../index.html">Home</a></li>
- 		<li id="news-nav"><a href="tbd.html">News</a></li>
-		<li id="contacts-nav"><a href="tutorials.html">Tutorials</a></li>
-		<li id="about-nav"><a href="about.html">About</a></li>
-		<a href="../index.html"><img src="../media/logo.png" id="home-p-nav" alt="main-logo" href="../index.html"></a>
-	</ul>
+	 <div class="wrapper-1">
+    <div class="sidebar-1">
+	  	
+      <ul class="ul-1">
+        <li><a href="#" onclick="changeContent(1)" class="li-1" id="button-1-home">Home/Index</a></li>
+        <li><a href="#" onclick="changeContent(2)" class="li-1">Cybersecurity Basics: Protecting Yourself Online</a></li>
+        <li><a href="#" onclick="changeContent(3)" class="li-1">Item 3</a></li>
+        <li><a href="#" onclick="changeContent(4)" class="li-1">Item 4</a></li>
+        <li><a href="#" onclick="changeContent(5)" class="li-1">Item 5</a></li>
+        <li><a href="#" onclick="changeContent(6)" class="li-1">Item 6</a></li>
+        <li><a href="#" onclick="changeContent(7)" class="li-1">Item 7</a></li>
+<!--		<li><a href="#" onclick="logEntries()" class="li-1">Log I</a></li> -->
+      </ul>
+    </div>
+    <div class="content" id="content" style="transform: translateY(75px);">
+      <!-- Content will be dynamically updated here -->
+    </div>
+    
+  </div>
+
 	
 </body>
 </html>

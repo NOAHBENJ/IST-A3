@@ -58,6 +58,8 @@ li a {
 	font-size: 50px;
 }
 
+
+
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: #111;
@@ -104,12 +106,14 @@ li a:hover {
 
 #owl-nav-prev {
   margin-left: 10px;
-	transform: translateX(-6rem) translateY(120px);
+	transform: translateX(-7rem) translateY(120px);
+	width: 100px; height: 37px;
 }
 
 #owl-nav-next {
   margin-right: 10px;
 	transform: translateX(0rem) translateY(120px);
+	width: 100px; height: 37px;
 } 
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -127,7 +131,7 @@ body {
 }
 
 .wrapper-1 .sidebar-1 {
-  background: rgb(5, 68, 104);
+  background: #333;
   position: fixed;
   top: 0;
   left: 0;
@@ -140,7 +144,7 @@ body {
 .wrapper-1 .sidebar-1 .ul-1 .li-1 {
   display: block;
   padding: 14px 80px;
-  border-bottom: 1px solid #10558d;
+  border-bottom: 1px solid #5a189a;
   color: rgb(241, 237, 237);
   font-size: 16px;
   position: relative;
@@ -148,14 +152,14 @@ body {
 
 .wrapper-1 .sidebar-1 .ul-1 .li-1:hover,
 .wrapper-1 .sidebar-1 .ul-1 .li-1.active {
-  color: #0c7db1;
+  color: #5a189a;
   background: white;
  /* border-right: 2px solid rgb(5, 68, 104); */
 }
 
 .wrapper-1 .sidebar-1 .ul-1 .li-1:hover .icon,
 .wrapper-1 .sidebar-1 .ul-1 .li-1.active .icon {
-  color: #0c7db1;
+  color: #5a189a;
 }
 
 .wrapper-1 .sidebar-1 .ul-1 .li-1:hover:before,
@@ -173,3 +177,89 @@ body {
   margin-top: 75px; /* Adjust this value as needed */
 }
 
+.li-1 {
+	background-color: #333;
+}
+
+
+
+.parallax {
+  height: 10000px; 
+  scroll-behavior: smooth;
+  perspective: 1px;
+  perspective-origin: 0 0;
+  background-image: url("../media/code-10.jpg");
+  background-size: auto 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+
+.section {
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 0 0;
+  color: white;
+}
+
+.section:nth-child(1) h1 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.section:nth-child(2) h1 {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.section:nth-child(3) h1 {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+
+.section:nth-child(4) h1 {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.section:nth-child(5) h1 {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+
+.last-element::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 200px; /* Adjust the height as needed */
+  background-color: white;
+}
+
+#footer-div-main {
+  width: 100vw;
+  height: 1200px;
+  background-color: rgba(255,255,255,1);
+}
+
+#footer-test {
+  color: black;
+}
+
+#footer-div-main {
+  position: relative;
+  bottom: 0;
+  background-color: rgba(255,255,255,1);
+  padding: 40px;
+  font-size: 25px;
+}
+
+/* grid-template-rows: auto 1fr auto;*/
