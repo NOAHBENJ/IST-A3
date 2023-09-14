@@ -42,6 +42,7 @@ function changeContent(itemNumber) { // This long function will change the conte
 
   let contentElement = document.getElementById('content'); // Creates a variable of the content element, so we can manipulate in JavaScript
   contentElement.innerHTML = '';// IMPORTANT - if someone presses multiple buttons, rather than adding to the stack, wipes it so its only the wanted page's content
+  document.title === "News" ? contentElement.style.transform = "translateY(95px) translateX(20px)" : contentElement.style.transform = "translateY(75px)"; // Due to the way that my website is made, I have to do this to fix the positioning of content based on the page name
 
   if (currentText) { // Error prevention, makes sure there is content
     let str = currentText; // Sets str to the currentText, what we want to change to, for simplicity
@@ -94,7 +95,7 @@ function changeContent(itemNumber) { // This long function will change the conte
 
       let remainingText = str.substring(currentIndex); // Grabs all text afterwards
       remainingText = remainingText.replace(headerTagPattern, '');
-	  
+		
       if (remainingText) { // If there is text, do x
         let textElement = document.createElement('p'); // Creates a new element
         textElement.innerText = remainingText; // Sets the text

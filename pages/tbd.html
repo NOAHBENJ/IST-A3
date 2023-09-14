@@ -2,7 +2,7 @@
 <html> 
 <head>
 <meta charset="UTF-8">
-<title>IST Website</title> <!--Change later-->
+<title>News</title> <!--Change later-->
 <link href="style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/0.3.2/js/sql.js"></script>
@@ -20,8 +20,52 @@
 			<a href="../index.html"><img src="../media/logo.png" id="home-p-nav" alt="main-logo" href="../index.html"></a>
 		</ul>
 	</nav>
-	
 
+	<div id="content">
+		<div class="grid-container" style="transform: translteY(80px); ">
+			<div class="grid-item" id="item1" style="transform: translteY(80px);">
+				<img id="item1-img" class="item-img" src="../media/code-1.png" style="transform: translateX(-15px) translateY(-15px); border-radius: 25px 25px 0px 0px;">
+				<h1 id="item1-heading" class="item-heading">Title</h1>
+				<p id="item1-subtext" class="item-subtext ">Subtext</p>
+			</div>
+			<div class="grid-item" id="item2" style="transform: translteY(80px);" onClick="changeContent(1)"></div>
+			<div class="grid-item" id="item3" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item4" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item5" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item6" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item7" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item8" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item9" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item10" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item11" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item12" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item13" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item14" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item15" style="transform: translteY(80px);"></div>
+			<div class="grid-item" id="item16" style="transform: translteY(80px);"></div>
+		</div>
+	</div>
+
+	<script>
+	
+		var parentDiv = document.getElementById('parentDivId');
+		var childDivs = parentDiv.getElementsByTagName('div');
+
+		let currentColumn = 0;
+		let currentRow = 0;
+		
+		for (var i = 0; i < childDivs.length; i++) {
+			childDivs[i].style.grid-column-start = currentColumn;
+			childDivs[i].style.grid-column-end = currentColumn;
+			childDivs[i].style.grid-row-start = currentRow;
+			childDivs[i].style.grid-row-end = currentRow;
+			
+			if (currentColumn === 4) { currentColumn = 0; currentRow++; }
+			else { currentColumn++; }
+		}
+	
+	</script>
+	
 	
 </body>
 </html>
