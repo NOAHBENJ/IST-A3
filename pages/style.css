@@ -320,30 +320,19 @@ body {
 	grid-column-end: 4; 
 	grid-row-start: 1; 
 	grid-row-end: 1; 
-} /*
-#item5 {
-	grid-column-start: 1; 
-	grid-column-end: 1; 
-	grid-row-start: 2; 
-	grid-row-end: 2; 
+} 
+
+#news-back-button {
+  background-color: #9D4eDD;
+  font-size: 30px;
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
 }
-#item6 {
-	grid-column-start: 2; 
-	grid-column-end: 2; 
-	grid-row-start: 2; 
-	grid-row-end: 2; 
-}
-#item7 {
-	grid-column-start: 3; 
-	grid-column-end: 3; 
-	grid-row-start: 2; 
-	grid-row-end: 2; 
-}
-#item8 {
-	grid-column-start: 4; 
-	grid-column-end: 4; 
-	grid-row-start: 2; 
-	grid-row-end: 2; 
-} */
 
 

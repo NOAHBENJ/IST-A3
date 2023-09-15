@@ -27,7 +27,7 @@ function insertRows() { // This will set the content of the database to all entr
     var storedFileContent = localStorage.getItem("fileContent"); // Grabs the data set earlier
     const obj = JSON.parse(storedFileContent); // Parses the data from JSON into a JavaScript array
 	obj.pages.forEach(page => { // For every entry inside of the JSON file. 
-		db.run('INSERT INTO entries (name, content) VALUES (?, ?)', [page.name, page.content]); // For every entry, creates a new row in the database, of the name // (which is the number of the page, as many as I want)
+		db.run('INSERT INTO entries (name, content) VALUES (?, ?)', [page.id, page.content]); // For every entry, creates a new row in the database, of the name // (which is the number of the page, as many as I want)
 	}); // Once all entries are counted
   }).then(() => {
         document.getElementById("button-1-home").click(); // This will load the home content whenever the page is first loaded, doing this in a <script> tag or at the end of the file seems to break it, and I assume due to the database not being finished, so once it is, we then load it, as I cannot press it fast enough myself for the error to reproduce on day-to-day use. 
@@ -38,11 +38,28 @@ function insertRows() { // This will set the content of the database to all entr
 
 function changeContent(itemNumber) { // This long function will change the content of the content section of the page, from the database - TODO was finished, added // img support. It was hard, we got there.
   let listOfThings = logEntries(); // Grabs all entries from database table
-  let currentText = listOfThings[itemNumber - 1][1]; // Finds the one we want
+  let i = 0;
+  let currentText = "";
+  listOfThings.forEach( row => {
+    if (row[0].toString().localeCompare(itemNumber.toString()) === 0) {
+		currentText = row[1]; // Finds the one we want
+	}
+	i++;
+  });
 
+
+
+	
   let contentElement = document.getElementById('content'); // Creates a variable of the content element, so we can manipulate in JavaScript
   contentElement.innerHTML = '';// IMPORTANT - if someone presses multiple buttons, rather than adding to the stack, wipes it so its only the wanted page's content
   document.title === "News" ? contentElement.style.transform = "translateY(95px) translateX(20px)" : contentElement.style.transform = "translateY(75px)"; // Due to the way that my website is made, I have to do this to fix the positioning of content based on the page name
+  if (document.title === "News") {
+    let buttonElement = document.createElement('button'); // Creats a button tag
+    buttonElement.innerText = "Back"; // Sets the text of the button to "Back"
+	buttonElement.id = "news-back-button"; // Sets the ID of the back button
+	buttonElement.onclick = function() { window.location.reload(true); }; // Sets the onclick of the button to reload the page, which sends you to the main page
+    contentElement.appendChild(buttonElement); // Appents the back button tag into the DOM
+  }
 
   if (currentText) { // Error prevention, makes sure there is content
     let str = currentText; // Sets str to the currentText, what we want to change to, for simplicity
