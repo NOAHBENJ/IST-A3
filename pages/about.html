@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>IST Website</title> <!--Change later-->
 <link href="style.css" rel="stylesheet" type="text/css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body>
@@ -15,6 +17,80 @@
 		<li id="about-nav"><a href="about.html">About</a></li>
 		<a href="../index.html"><img src="../media/logo.png" id="home-p-nav" alt="main-logo" href="../index.html"></a>
 	</ul>
+	<div id="about-content" style="text-align: center; padding: 50px;">
+	<h1 id="main-text">About Me</h1>
+	<h2 style="text-align: center">So? Who am I? What do I do? Why did I make this? All valid questions. <br>My name is Noah, and I very much enjoy Computer Science, Development, Administrating Systems and Music.</h2>
+		<br> <br>
+	<h1>Languages I've Tried to Learn</h1>
+		<br>
+	<h2>I've tried many languages, C, C++, C#, Java, ASM, Python, Swift, HTML/CSS/JS, NodeJS and probably propriotary scripting languages.</h2>
+	<br><br>
+	<h1>Projects I've Made</h1>
+		<br>
+	<h2>I've made a few Minecraft Cheat Clients (Java), I made a script for a Minecraft Console Client (C#), I've made a few scripts in Python for misc. things, and probably a few I've forgotten about. <br><br>One of my most notable things would be the fact that I host websites, under a few domains. That's how you can find this under many domains, the main one is <a href="https://ist.is-always.fun/">https://ist.is-always.fun/</a>. The best part? They are all locally hosted, on my own machines, reverse proxied through Cloudflare. Another thing I have done with all my domains is the x.domain.tld -> domain.tld/x, which took a long time to figure out through Cloudflare Page Rules.<br><br>Throughout all of this, one thing I have always struggled with is Front-End designing, and more specifically, what to put there. I've always been Function-over-Form, but with Front-End/CSS, this philosophy does not work. So, I try my best, with googling other sites, and heck - even asking my dad, who is equally as terrible as I am. </h2>
+	<br><br>
+		<h1>My Adobe Experience</h1>
+		<h2>Uh oh. I've done a few things in Adobe applications, like my Term 2 assessment video, the Stranger Things themed intro sequence, this website, and more. <br><br>I did a little bit of photoshop in the form of Save The World Watermarks. Let me explain. Save The World is a subset of Fortnite, a game made by Epic Games. It has been almost abandoned by the developers in favour of the Battle Royale side of the game. This, in turn, allowed for '1 of 1s' to be made, which is a gun that shouldn't exist, but does, through speical properties. There are hard to get your hands on, hence why people want them watermarked. Considering I have a licence to Adobe Photoshop, and was looking to learn Photoshop first-hand, I figured, 'What do I have to lose?'. As per everything, I wasn't good at start, in fact, I was terrible. I sucked, but that's fine - I got better - learned what people wanted, and learned how to fufil this. So below, you will see my work, and I hope you enjoy it, because I enjoy making these things. (Sorry for how stretched its going to be, it's a thing with OwlCarousel.)</h2>
+	</div>
+	<br>
+	<br>
+	<div id="carousel" class="owl-carousel">
+		<img src="../media/fainted-img1.jpg">
+		<img src="../media/fainted-img2.jpg">
+		<img src="../media/fainted-img3.jpg">
+		<img src="../media/fainted-gif1.gif">
+		<img src="../media/fainted-gif2.gif">
+		<img src="../media/fainted-gif3.gif">
+		<img src="../media/fainted-gif4.gif">
+		<img src="../media/wm1.png">
+		<img src="../media/wm2.png">
+		<img src="../media/wm3.png">
+		<img src="../media/wm4.png">
+		<img src="../media/wm5.png">
+		<img src="../media/wm6.png">
+		<img src="../media/wm7.png">
+		<img src="../media/wm8.png">
+		<img src="../media/wm9.png">
+		<img src="../media/wm10.png">
+
+		<img src="../media/ae-title.gif">
+		
+	</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var carousel = $('#carousel');
+				
+				
+				for (var i = 1; i <= 6; i++) {
+					var imagePath = '../media/img-' + i + '.jpeg';
+					//carousel.append('<img src="' + imagePath + '" style="width: ' + '200' + 'px">');
+				}
+				carousel.owlCarousel({
+					items: 3,
+					  loop: true,
+					  nav: true,
+					navText: ['<span id="owl-nav-prev" class="custom-prev" style="display:block;margin: 0 auto;">Previous</span>', '<span id="owl-nav-next"  class="custom-next" style="display:block;margin: 0 auto;">Next</span>'],
+					  margin: 10,
+					autoHeight: true,
+					  responsiveClass: true,
+					  responsive:{
+						  0:{
+							  items: 1,
+							  nav: true
+						  },
+						  600:{
+							  items: 3,
+							  nav: true
+						  }
+					  }
+
+					});
+					
+			});
+		</script>
 	
+
 </body>
 </html>

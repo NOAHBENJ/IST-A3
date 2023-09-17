@@ -22,7 +22,34 @@
 		<h1 id="main-text">Home</h1>
 		<h3 id="latest-news-text">Latest News</h3>
 		
-		<div id="carousel" class="owl-carousel"></div>
+		<div id="carousel" class="owl-carousel">
+		
+			<div class="home-grid-item" id="item1" style="transform: translteY(80px);" >
+				<h1 id="item1-heading" class="item-heading" style="font-size: calc(20vw / 12);">Massive DDoS Attack Breaks Record </h1>
+				<p id="item1-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Web infrastructure company Cloudflare has successfully mitigated a record-breaking distributed denial-of-service (DDoS) attack, peaking at over 71 million requests per second. The attack originated from a botnet consisting of more than 30,000 IP addresses from various cloud providers</p>
+			</div>
+			<div class="home-grid-item" id="item2" style="transform: translteY(80px);">
+				<h1 id="item2-heading" class="item-heading" style="font-size: calc(20vw / 12);">Top 15 Routinely Exploited Vulnerabilities </h1>
+				<p id="item2-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">The vulnerability CVE-2021-26084 affecting Atlassian Confluence Server and Data Center is among the most routinely exploited vulnerabilities. The continued exploitation of certain vulnerabilities suggests that many organizations fail to patch their software in a timely manner</p>
+			</div>
+			<div class="home-grid-item" id="item3" style="transform: translteY(80px);" >
+				<h1 id="item3-heading" class="item-heading" style="font-size: calc(20vw / 12);">Critical Vulnerability in Cisco's BroadWorks Platform </h1>
+				<p id="item3-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Cisco has released patches for CVE-2023-20238, a critical authentication bypass vulnerability in the BroadWorks Application Delivery Platform</p>
+			</div>
+			<div class="home-grid-item" id="item4" style="transform: translteY(80px);">
+				<h1 id="item4-heading" class="item-heading" style="font-size: calc(20vw / 12);">Adobe Acrobat and Reader Zero-Day Exploited</h1>
+				<p id="item4-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Adobe has raised an alarm about new in-the-wild zero-day attacks targeting its widely deployed Adobe Acrobat and Reader product</p>
+			</div>
+			<div class="home-grid-item" id="item5" style="transform: translteY(80px);">
+				<h1 id="item5-heading" class="item-heading" style="font-size: calc(20vw / 12);">Iranian Cyberspies Deploy New Backdoor</h1>
+				<p id="item5-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Iran-linked cyberespionage group Charming Kitten has infected at least 34 victims in Brazil, Israel, and UAE with a new backdoor</p>
+			</div>
+			<div class="home-grid-item" id="item6" style="transform: translteY(80px);" >
+				<h1 id="item6-heading" class="item-heading" style="font-size: calc(20vw / 12);">Portuguese Hacker Convicted in Football Leaks Trial</h1>
+				<p id="item6-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">The Portuguese hacker behind “Football Leaks” has been convicted of nine crimes by a Lisbon court and given a suspended prison sentence of four years</p>
+			</div>
+			
+		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 		<script>
@@ -52,7 +79,7 @@
 				
 				for (var i = 1; i <= 6; i++) {
 					var imagePath = 'media/img-' + i + '.jpeg';
-					carousel.append('<img src="' + imagePath + '" style="width: ' + viewWidth + 'vw">');
+					//carousel.append('<img src="' + imagePath + '" style="width: ' + viewWidth + 'vw">');
 				}
 				carousel.owlCarousel({
 					items: 3, loop: true, nav: false,

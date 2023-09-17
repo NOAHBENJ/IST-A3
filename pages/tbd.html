@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/0.3.2/js/sql.js"></script>
 
-		<script src="index.js"></script>
+		<script type="text/javascript" src="index.js"></script>
 </head>
 
 <body>
@@ -69,7 +69,7 @@
 			</div>
 			<div class="grid-item" id="item12" style="transform: translteY(80px);"  onClick="changeContent(212)">
 				<h1 id="item12-heading" class="item-heading" style="font-size: calc(20vw / 12);"> US Still Vulnerable to Cyberattacks on Key Infrastructure, Experts Warn</h1>
-				<p id="item12-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Despite not experiencing a major cyberattack on its infrastructure following the Ukraine conflict, experts caution that the United States should not drop its guard. Experts stress that the Russian government or sympathetic splinter groups may launch cyberattacks, and ransomware attacks similar to the Colonial Pipeline incident are still possible. Recommendations include standardizing the adoption of extended detection and response frameworks (XDR) to prevent ransomware activities</p>
+				<p id="item12-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Despite not experiencing a major cyberattack on its infrastructure following the Ukraine conflict, experts caution that the United States should not drop its guard. Experts stress that the Russian government or sympathetic splinter groups may launch cyberattacks, and ransomware attacks similar to the Colonial Pipeline incident are still possible. </p>
 			</div>
 			<div class="grid-item" id="item13" style="transform: translteY(80px);"  onClick="changeContent(213)">
 				<h1 id="item13-heading" class="item-heading" style="font-size: calc(20vw / 12);">US Introduces Bills to Enhance Critical Infrastructure Security</h1>
@@ -84,31 +84,31 @@
 				<p id="item15-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Security researchers have uncovered a significant number of vulnerabilities in Industrial Control Systems (ICS) in 2021, coinciding with an increase in cyberattacks on critical infrastructure. This highlights the urgent need for enhanced security measures and proactive defense strategies to protect critical infrastructure from cyber threats</p>
 			</div>
 			<div class="grid-item" id="item16" style="transform: translteY(80px);"  onClick="changeContent(216)">
-				<h1 id="item16-heading" class="item-heading" style="font-size: calc(20vw / 12);"> Increasing Vulnerabilities in Industrial Control Systems Highlight the Need for Security Enhancements</h1>
-				<p id="item16-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">Research shows a rise in vulnerabilities in industrial control systems (ICS), emphasizing the need for improved security measures. Operators of critical infrastructure environments are urged to revamp their cybersecurity governance, risk, and compliance practices to address these challenges effectively. </p>
+				<h1 id="item16-heading" class="item-heading" style="font-size: calc(20vw / 12);">Virtual Communication and Programming &amp; Development Events</h1>
+				<p id="item16-subtext" class="item-subtext " style="font-size: calc(20vw / 21); transform: translateY(10px)">VentureBeat is hosting an exclusive after-hours event, featuring key insights and networking opportunities with leaders in the Data and AI spaces. The event aims to provide valuable discussions on addressing cloud security challenges using Tenable Cloud Security. </p>
 			</div>
 		</div>
 	</div>
 
-	<script>
-	
-		var parentDiv = document.getElementById('parentDivId');
-		var childDivs = parentDiv.getElementsByTagName('div');
+<script>var parentDiv = document.getElementsByClassName('grid-container')[0];
+		var ochildDivs = parentDiv.getElementsByTagName('div');
+		var childDivs = Array.from(ochildDivs);
+		//console.log(childDivs)
 
 		let currentColumn = 0;
 		let currentRow = 0;
-		
-		for (var i = 0; i < childDivs.length; i++) {
-			childDivs[i].style.grid-column-start = currentColumn;
-			childDivs[i].style.grid-column-end = currentColumn;
-			childDivs[i].style.grid-row-start = currentRow;
-			childDivs[i].style.grid-row-end = currentRow;
-			
-			if (currentColumn === 4) { currentColumn = 0; currentRow++; }
-			else { currentColumn++; }
-		}
-	
-	</script>
+
+		const resizeObserver = new ResizeObserver(entries => {
+		  for (let entry of entries) {
+			if (entry.contentRect.width <= 850) {
+			  childDivs.forEach(childDiv => { childSubText = childDiv.getElementsByTagName('p')[0]; childSubText.style.visibility = 'hidden'; });
+			} else {
+			  childDivs.forEach(childDiv => { childSubText = childDiv.getElementsByTagName('p')[0]; childSubText.style.visibility = 'visible'; });
+			}
+		  }
+		});
+
+		resizeObserver.observe(window.document.body); </script>
 	
 	
 </body>

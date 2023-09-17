@@ -79,10 +79,17 @@ li a:hover {
   text-align: center;
 }
 
+.owl-carousel {
+	position: relative;
+	  text-align: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
 
 .owl-carousel img {
 	display: block;
-	height: 250px;
+	width: auto;
 	margin: auto; 
 
 }
@@ -281,6 +288,20 @@ body {
 .grid-item {
   background-color: #9D4eDD;
   padding: 20px;
+  font-size: calc(20vw / 23)px;
+  text-align: center;
+  width: 20vw;
+  height: calc(20vw * 1.7);
+  border-radius: 25px;
+    
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-grid-item {
+	  background-color: #9D4eDD;
+  padding: 5px;
   font-size: 30px;
   text-align: center;
   width: 20vw;
@@ -334,5 +355,4 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 

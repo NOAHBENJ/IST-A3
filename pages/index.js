@@ -53,6 +53,7 @@ function changeContent(itemNumber) { // This long function will change the conte
   let contentElement = document.getElementById('content'); // Creates a variable of the content element, so we can manipulate in JavaScript
   contentElement.innerHTML = '';// IMPORTANT - if someone presses multiple buttons, rather than adding to the stack, wipes it so its only the wanted page's content
   document.title === "News" ? contentElement.style.transform = "translateY(95px) translateX(20px)" : contentElement.style.transform = "translateY(75px)"; // Due to the way that my website is made, I have to do this to fix the positioning of content based on the page name
+ //screen.width <= 460 ? contentElement.style.transform = "translateY(695px) translateX(20px)" : contentElement.style.transform = "translateY(75px)";
   if (document.title === "News") {
     let buttonElement = document.createElement('button'); // Creats a button tag
     buttonElement.innerText = "Back"; // Sets the text of the button to "Back"
@@ -150,6 +151,26 @@ fetchFileContent(filename)
   });
 */
 
+ /* var parentDiv = document.getElementsByClassName('grid-container')[0];
+		var ochildDivs = parentDiv.getElementsByTagName('div');
+		var childDivs = Array.from(ochildDivs);
+		console.log(childDivs)
+
+		let currentColumn = 0;
+		let currentRow = 0;
+
+		const resizeObserver = new ResizeObserver(entries => {
+		  for (let entry of entries) {
+			if (entry.contentRect.width <= 850) {
+			  childDivs.forEach(childDiv => { childSubText = childDiv.getElementsByTagName('p')[0]; childSubText.style.visibility = 'hidden'; });
+			} else {
+			  childDivs.forEach(childDiv => { childSubText = childDiv.getElementsByTagName('p')[0]; childSubText.style.visibility = 'visible'; });
+			}
+		  }
+		});
+
+		resizeObserver.observe(window.document.body); */
+  
 function fetchFileContent(fileLocation) {
   return fetch(fileLocation) // Get all data from fileLocation
     .then(response => { // Parse data
